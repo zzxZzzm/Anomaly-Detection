@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from load_data import *
 from utils import *
-from stgcn import *
+from astgcn import *
 
 torch.manual_seed(2333)
 torch.cuda.manual_seed(2333)
@@ -20,6 +20,15 @@ print(device)
 matrix_path = "dataset/W_228.csv"
 data_path = "dataset/V_228.csv"
 save_path = "save/model.pt"
+
+os.makedirs(os.path.dirname(save_path), exist_ok=True)
+
+if not os.path.exists(matrix_path):
+    print(f"Error: {matrix_path} not found!")
+    exit(1)
+if not os.path.exists(data_path):
+    print(f"Error: {data_path} not found!")
+    exit(1)
 
 day_slot = 288
 n_train, n_val, n_test = 34, 5, 5
