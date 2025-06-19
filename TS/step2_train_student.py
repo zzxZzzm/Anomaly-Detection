@@ -20,7 +20,7 @@ criterion_recon = reconstruction_loss
 criterion_distill = distillation_loss
 optimizer = optim.Adam(student_model.parameters(), lr=0.001)
 
-for epoch in range(100):
+for epoch in range(args.epochs):
     for x, y in dataloader:
         x = x.unsqueeze(1).float()  
         y = y.unsqueeze(1).float()
