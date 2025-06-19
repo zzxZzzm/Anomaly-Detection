@@ -14,9 +14,6 @@ np.random.seed(2333)
 random.seed(2333)
 torch.backends.cudnn.deterministic = True
 
-device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-print(device)
-
 matrix_path = "dataset/W_228.csv"
 data_path = "dataset/V_228.csv"
 save_path = "save/model.pt"
